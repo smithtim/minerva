@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Minerva :: Daily Journal</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Journal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journals.each do |journal| %>
+      <tr>
+        <td><%= journal.name %></td>
+        <td><%= link_to 'Show', journal %></td>
+        <td><%= link_to 'Delete', journal, method: :delete, data: { confirm: 'Are you sure?  This will delete the journal and all of its entries.' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Journal', new_journal_path %>

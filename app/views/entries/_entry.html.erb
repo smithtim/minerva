@@ -1,0 +1,14 @@
+<%=
+	# show the title and creation date, and edited date if different
+	s = entry.title
+	created = entry.created_at.strftime '%a %-d %b %Y'
+	edited = entry.updated_at.strftime '%a %-d %b %Y'
+	s << " (created #{created}"
+	s << ", edited #{edited}" if edited != created
+	s << ')'
+	content_tag :span, s
+%>
+
+<%= link_to "Details", [@journal, entry] %>
+
+<br>
